@@ -28,6 +28,7 @@
           var byCodes = smart.byCodes(obv, 'code');
           var identifier = patient.identifier;
           var active = patient.active;
+          var name = patient.name;
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
           var day = dob.getDate();
@@ -52,6 +53,7 @@
           var p = defaultPatient();
           p.identifier = identifier;
           p.active = active;
+          p.name = name;
           p.birthdate = dobStr;
           p.gender = gender;
           p.fname = fname;
@@ -86,6 +88,7 @@
     return {
       identifier: {value: ''},
       active: {value: ''},
+      name: {value: ''},
       fname: {value: ''},
       lname: {value: ''},
       gender: {value: ''},
@@ -157,6 +160,14 @@
     $('#identifier_value').html(p.identifier.value);
     $('#identifier_period').html(p.identifier.period);
     $('#identifier_assigner').html(p.identifier.assigner);
+    $('#active').html(p.active);
+    $('name_use).html(p.name.use);
+    $('name_text).html(p.name.text);
+    $('name_family).html(p.name.family);
+    $('name_given).html(p.name.given);
+    $('name_prefix).html(p.name.prefix);
+    $('name_suffix).html(p.name.suffix);
+    $('name_period).html(p.name.period);
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
