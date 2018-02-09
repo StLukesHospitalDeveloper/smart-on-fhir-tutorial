@@ -148,7 +148,12 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
-    $('#identifier').html(p.identifier);
+    $('#identifier_use').html(p.identifier.use);
+    $('#identifier_type').html(p.identifier.type);
+    $('#identifier_system').html(p.identifier.system);
+    $('#identifier_value').html(p.identifier.value);
+    $('#identifier_period').html(p.identifier.period);
+    $('#identifier_assigner').html(p.identifier.assigner);
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
