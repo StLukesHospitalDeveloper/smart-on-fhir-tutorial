@@ -27,6 +27,7 @@
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
           var identifier = patient.identifier;
+          var active = patient.active;
           var gender = patient.gender;
           var dob = new Date(patient.birthDate);
           var day = dob.getDate();
@@ -50,6 +51,7 @@
 
           var p = defaultPatient();
           p.identifier = identifier;
+          p.active = active;
           p.birthdate = dobStr;
           p.gender = gender;
           p.fname = fname;
@@ -83,6 +85,7 @@
   function defaultPatient(){
     return {
       identifier: {value: ''},
+      active: {value: ''},
       fname: {value: ''},
       lname: {value: ''},
       gender: {value: ''},
