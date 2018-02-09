@@ -26,13 +26,7 @@
 
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
-          var identifier = patient.identifier[0];
-          var active = patient.active;
-          var name = patient.name[0];
           var gender = patient.gender;
-          var telecom = patient.telecom;
-          
-          
           var dob = new Date(patient.birthDate);
           var day = dob.getDate();
           var monthIndex = dob.getMonth() + 1;
@@ -54,25 +48,6 @@
           var ldl = byCodes('2089-1');
 
           var p = defaultPatient();
-          p.identifier = identifier;
-          p.identifier_use = identifier.use;
-          p.identifier_type = identifier.type;
-          p.identifier_system = identifier.system;
-          p.identifier_value = identifier.value;
-          p.identifier_period = identifier.period;
-          p.identifier_assigner = identifier.assigner;
-          //p.identifier2 = identifier;
-          p.active = active;
-          p.name = name;
-          p.name_use = name.use;
-          p.name_text = name.text;
-          p.name_family = name.family;
-          p.name_given = name.given;
-          p.name_suffix = name.suffix;
-          p.name_period = name.period;
-          p.telecom = telecom;
-          
-          
           p.birthdate = dobStr;
           p.gender = gender;
           p.fname = fname;
@@ -90,6 +65,31 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
+          
+          
+                  
+          if (typeof patient.identifier[0] !== 'undefined') {
+            var identifier = patient.identifier[0];
+            p.identifier_use = identifier.use;
+            p.identifier_type = identifier.type;
+            p.identifier_system = identifier.system;
+            p.identifier_value = identifier.value;
+            p.identifier_period = identifier.period;
+            p.identifier_assigner = identifier.assigner;
+          }
+          p.active = patient.active;
+          if (typeof patient.name[0] !== 'undefined') {
+            var name = patient.name[0];
+            p.name_use = name.use;
+            p.name_text = name.text;
+            p.name_family = name.family;
+            p.name_given = name.given;
+            p.name_suffix = name.suffix;
+            p.name_period = name.period;
+          }
+          p.telecom = patient.telecom;
+          
+          
 
           ret.resolve(p);
         });
@@ -104,26 +104,7 @@
   };
 
   function defaultPatient(){
-    return {
-      identifier: {value: ''},
-      identifier_use: {value: ''},
-      identifier_type: {value: ''},
-      identifier_system: {value: ''},
-      identifier_value: {value: ''},
-      identifier_period: {value: ''},
-      identifier_assigner: {value: ''},
-      //identifier2: {use: '', type: {''}, system: '', value: '', period: {''}, assigner: {''}},
-      active: {value: ''},
-      name: {value: ''},
-      name_use: {value: ''},
-      name_text: {value: ''},
-      name_family: {value: ''},
-      name_given: {value: ''},
-      name_suffix: {value: ''},
-      name_period: {value: ''},
-      telecom: {value: ''},
-      
-      
+    return {     
       fname: {value: ''},
       lname: {value: ''},
       gender: {value: ''},
@@ -134,6 +115,24 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+      
+      
+      
+      identifier_use: {value: ''},
+      identifier_type: {value: ''},
+      identifier_system: {value: ''},
+      identifier_value: {value: ''},
+      identifier_period: {value: ''},
+      identifier_assigner: {value: ''},
+      active: {value: ''},
+      name_use: {value: ''},
+      name_text: {value: ''},
+      name_family: {value: ''},
+      name_given: {value: ''},
+      name_suffix: {value: ''},
+      name_period: {value: ''},
+      telecom: {value: ''}
+      
     };
   }
 
@@ -188,45 +187,7 @@
 
   window.drawVisualization = function(p) {
     $('#holder').show();
-    $('#loading').hide();
-    $('#identifier_use').html(p.identifier.use);
-    $('#identifier_type').html(p.identifier.type);
-    $('#identifier_system').html(p.identifier.system);
-    $('#identifier_value').html(p.identifier.value);
-    $('#identifier_period').html(p.identifier.period);
-    $('#identifier_assigner').html(p.identifier.assigner);
-    $('#identifier_use2').html(p.identifier_use);
-    $('#identifier_type2').html(p.identifier_type);
-    $('#identifier_system2').html(p.identifier_system);
-    $('#identifier_value2').html(p.identifier_value);
-    $('#identifier_period2').html(p.identifier_period);
-    $('#identifier_assigner2').html(p.identifier_assigner);
-    /*
-    $('#identifier_use3').html(p.identifier2.use);
-    $('#identifier_type3').html(p.identifier2.type);
-    $('#identifier_system3').html(p.identifier2.system);
-    $('#identifier_value3').html(p.identifier2.value);
-    $('#identifier_period3').html(p.identifier2.period);
-    $('#identifier_assigner3').html(p.identifier2.assigner);
-    */
-    $('#active').html(p.active);
-    $('#name_use').html(p.name.use);
-    $('#name_text').html(p.name.text);
-    $('#name_family').html(p.name.family);
-    $('#name_given').html(p.name.given);
-    $('#name_prefix').html(p.name.prefix);
-    $('#name_suffix').html(p.name.suffix);
-    $('#name_period').html(p.name.period);
-    $('#name_use2').html(p.name_use);
-    $('#name_text2').html(p.name_text);
-    $('#name_family2').html(p.name_family);
-    $('#name_given2').html(p.name_given);
-    $('#name_prefix2').html(p.name_prefix);
-    $('#name_suffix2').html(p.name_suffix);
-    $('#name_period2').html(p.name_period);
-    $('#telecom').html(p.telecom);
-    
-    
+    $('#loading').hide();   
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
@@ -237,6 +198,27 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
+    
+    
+    
+    
+    
+    $('#identifier_use').html(p.identifier_use);
+    $('#identifier_type').html(p.identifier_type);
+    $('#identifier_system').html(p.identifier_system);
+    $('#identifier_value').html(p.identifier_value);
+    $('#identifier_period').html(p.identifier_period);
+    $('#identifier_assigner').html(p.identifier_assigner);
+    $('#active').html(p.active);
+    $('#name_use').html(p.name_use);
+    $('#name_text').html(p.name_text);
+    $('#name_family').html(p.name_family);
+    $('#name_given').html(p.name_given);
+    $('#name_prefix').html(p.name_prefix);
+    $('#name_suffix').html(p.name_suffix);
+    $('#name_period').html(p.name_period);
+    $('#telecom').html(p.telecom);
+    
   };
 
 })(window);
