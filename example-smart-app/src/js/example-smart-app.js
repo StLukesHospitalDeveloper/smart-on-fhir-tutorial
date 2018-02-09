@@ -52,6 +52,12 @@
 
           var p = defaultPatient();
           p.identifier = identifier;
+          p.identifier_use = identifier.use;
+          p.identifier_type = identifier.type;
+          p.identifier_system = identifier.system;
+          p.identifier_value = identifier.value;
+          p.identifier_period = identifier.period;
+          p.identifier_assigner = identifier.assigner;
           p.active = active;
           p.name = name;
           p.birthdate = dobStr;
@@ -87,6 +93,12 @@
   function defaultPatient(){
     return {
       identifier: {value: ''},
+      identifier_use: {value: ''},
+      identifier_type: {value: ''},
+      identifier_system: {value: ''},
+      identifier_value: {value: ''},
+      identifier_period: {value: ''},
+      identifier_assigner: {value: ''},
       active: {value: ''},
       name: {value: ''},
       fname: {value: ''},
@@ -160,6 +172,12 @@
     $('#identifier_value').html(p.identifier.value);
     $('#identifier_period').html(p.identifier.period);
     $('#identifier_assigner').html(p.identifier.assigner);
+    $('#identifier_use2').html(p.identifier_use);
+    $('#identifier_type2').html(p.identifier_type);
+    $('#identifier_system2').html(p.identifier_system);
+    $('#identifier_value2').html(p.identifier_value);
+    $('#identifier_period2').html(p.identifier_period);
+    $('#identifier_assigner2').html(p.identifier_assigner);
     $('#active').html(p.active);
     $('#name_use').html(p.name.use);
     $('#name_text').html(p.name.text);
