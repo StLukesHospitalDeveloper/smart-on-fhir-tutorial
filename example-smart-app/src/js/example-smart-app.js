@@ -97,7 +97,20 @@
           p.birthDate2 = patient.birthdate;
           p.deceasedBoolean = patient.deceasedBoolean;
           p.deceasedDateTime = patient.deceasedDateTime;
-          
+          p.address_length = patient.address.length;
+          if (typeof patient.address[0] !== 'undefined') {
+            var address = patient.address[0];
+            p.address_use: address.use;
+            p.address_type: address.type;
+            p.address_text: address.text;
+            p.address_line: address.line;
+            p.address_city: address.city;
+            p.address_district: address.district;
+            p.address_state: address.state;
+            p.address_postalCode: address.postalCode;
+            p.address_country: address.country;
+            p.address_period: address.period;
+          }
           
 
           ret.resolve(p);
@@ -145,8 +158,18 @@
       telecom: {value: ''},
       birthDate2: {value: ''},
       deceasedBoolean: {value: ''},
-      deceasedDateTime: {value: ''}
-      
+      deceasedDateTime: {value: ''},
+      address_length: {value: ''},
+      address_use: {value: ''},
+      address_type: {value: ''},
+      address_text: {value: ''},
+      address_line: {value: ''},
+      address_city: {value: ''},
+      address_district: {value: ''},
+      address_state: {value: ''},
+      address_postalCode: {value: ''},
+      address_country: {value: ''},
+      address_period: {value: ''}
       
       
       
@@ -240,7 +263,17 @@
     $('#birthDate2').html(p.birthDate2);
     $('#deceasedBoolean').html(p.deceasedBoolean);
     $('#deceasedDateTime').html(p.deceasedDateTime);
-    
+    $('#address_length').html(p.address_length);
+    $('#address_use').html(p.address_use);
+    $('#address_type').html(p.address_type);
+    $('#address_text').html(p.address_text);
+    $('#address_line').html(p.address_line);
+    $('#address_city').html(p.address_city);
+    $('#address_district').html(p.address_district);
+    $('#address_state').html(p.address_state);
+    $('#address_postalCode').html(p.address_postalCode);
+    $('#address_country').html(p.address_country);
+    $('#address_period').html(p.address_period);
     
     
   };
