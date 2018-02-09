@@ -30,6 +30,7 @@
           var active = patient.active;
           var name = patient.name;
           var gender = patient.gender;
+          var telecom = patient.telecom;
           var dob = new Date(patient.birthDate);
           var day = dob.getDate();
           var monthIndex = dob.getMonth() + 1;
@@ -58,8 +59,10 @@
           p.identifier_value = identifier.value;
           p.identifier_period = identifier.period;
           p.identifier_assigner = identifier.assigner;
+          p.identifier2 = identifier;
           p.active = active;
           p.name = name;
+          p.telecom = telecom;
           p.birthdate = dobStr;
           p.gender = gender;
           p.fname = fname;
@@ -99,8 +102,10 @@
       identifier_value: {value: ''},
       identifier_period: {value: ''},
       identifier_assigner: {value: ''},
+      identifier2: {use: '', type: {''}, system: '', value: '', period: {''}, assigner: {''}},
       active: {value: ''},
       name: {value: ''},
+      telecom: {value: ''},
       fname: {value: ''},
       lname: {value: ''},
       gender: {value: ''},
@@ -178,6 +183,12 @@
     $('#identifier_value2').html(p.identifier_value);
     $('#identifier_period2').html(p.identifier_period);
     $('#identifier_assigner2').html(p.identifier_assigner);
+    $('#identifier_use3').html(p.identifier2.use);
+    $('#identifier_type3').html(p.identifier2.type);
+    $('#identifier_system3').html(p.identifier2.system);
+    $('#identifier_value3').html(p.identifier2.value);
+    $('#identifier_period3').html(p.identifier2.period);
+    $('#identifier_assigner3').html(p.identifier2.assigner);
     $('#active').html(p.active);
     $('#name_use').html(p.name.use);
     $('#name_text').html(p.name.text);
@@ -186,6 +197,7 @@
     $('#name_prefix').html(p.name.prefix);
     $('#name_suffix').html(p.name.suffix);
     $('#name_period').html(p.name.period);
+    $('#telecom').html(p.telecom);
     $('#fname').html(p.fname);
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
