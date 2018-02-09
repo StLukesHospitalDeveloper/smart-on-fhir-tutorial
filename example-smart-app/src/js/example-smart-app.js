@@ -67,7 +67,10 @@
           p.ldl = getQuantityValueAndUnit(ldl[0]);
           
           
-                  
+          
+          /*
+            Testing
+          */
           if (typeof patient.identifier[0] !== 'undefined') {
             var identifier = patient.identifier[0];
             p.identifier_use = identifier.use;
