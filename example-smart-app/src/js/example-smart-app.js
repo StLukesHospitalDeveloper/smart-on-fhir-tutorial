@@ -64,6 +64,12 @@
           //p.identifier2 = identifier;
           p.active = active;
           p.name = name;
+          p.name_use = name.use;
+          p.name_text = name.text;
+          p.name_family = name.family;
+          p.name_given = name.given;
+          p.name_suffix = name.suffix;
+          p.name_period = name.period;
           p.telecom = telecom;
           
           
@@ -109,6 +115,12 @@
       //identifier2: {use: '', type: {''}, system: '', value: '', period: {''}, assigner: {''}},
       active: {value: ''},
       name: {value: ''},
+      name_use: {value: ''},
+      name_text: {value: ''},
+      name_family: {value: ''},
+      name_given: {value: ''},
+      name_suffix: {value: ''},
+      name_period: {value: ''},
       telecom: {value: ''},
       
       
@@ -205,6 +217,13 @@
     $('#name_prefix').html(p.name.prefix);
     $('#name_suffix').html(p.name.suffix);
     $('#name_period').html(p.name.period);
+    $('#name_use2').html(p.name_use);
+    $('#name_text2').html(p.name_text);
+    $('#name_family2').html(p.name_family);
+    $('#name_given2').html(p.name_given);
+    $('#name_prefix2').html(p.name_prefix);
+    $('#name_suffix2').html(p.name_suffix);
+    $('#name_period2').html(p.name_period);
     $('#telecom').html(p.telecom);
     
     
