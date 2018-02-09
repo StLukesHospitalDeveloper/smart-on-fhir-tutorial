@@ -71,6 +71,7 @@
           /*
             Testing
           */
+          p.indentifier_length = patient.identifier.length;
           if (typeof patient.identifier[0] !== 'undefined') {
             var identifier = patient.identifier[0];
             p.identifier_use = identifier.use;
@@ -81,6 +82,7 @@
             p.identifier_assigner = identifier.assigner;
           }
           p.active = patient.active;
+          p.name_length = patient.name.length;
           if (typeof patient.name[0] !== 'undefined') {
             var name = patient.name[0];
             p.name_use = name.use;
@@ -91,6 +93,10 @@
             p.name_period = name.period;
           }
           p.telecom = patient.telecom;
+          //p.gender = patient.gender;
+          p.birthDate2 = patient.birthdate;
+          p.deceasedBoolean = patient.deceasedBoolean;
+          p.deceasedDateTime = patient.deceasedDateTime;
           
           
 
@@ -121,6 +127,7 @@
       
       
       
+      identifier_length: {value: ''},
       identifier_use: {value: ''},
       identifier_type: {value: ''},
       identifier_system: {value: ''},
@@ -128,13 +135,20 @@
       identifier_period: {value: ''},
       identifier_assigner: {value: ''},
       active: {value: ''},
+      name_length: {value: ''},
       name_use: {value: ''},
       name_text: {value: ''},
       name_family: {value: ''},
       name_given: {value: ''},
       name_suffix: {value: ''},
       name_period: {value: ''},
-      telecom: {value: ''}
+      telecom: {value: ''},
+      birthDate2: {value: ''},
+      deceasedBoolean: {value: ''},
+      deceasedDateTime: {value: ''}
+      
+      
+      
       
     };
   }
@@ -206,6 +220,7 @@
     
     
     
+    $('#identifier_length').html(p.identifier_length);
     $('#identifier_use').html(p.identifier_use);
     $('#identifier_type').html(p.identifier_type);
     $('#identifier_system').html(p.identifier_system);
@@ -213,6 +228,7 @@
     $('#identifier_period').html(p.identifier_period);
     $('#identifier_assigner').html(p.identifier_assigner);
     $('#active').html(p.active);
+    $('#name_length').html(p.name_length);
     $('#name_use').html(p.name_use);
     $('#name_text').html(p.name_text);
     $('#name_family').html(p.name_family);
@@ -221,6 +237,11 @@
     $('#name_suffix').html(p.name_suffix);
     $('#name_period').html(p.name_period);
     $('#telecom').html(p.telecom);
+    $('#birthDate2').html(p.birthDate2);
+    $('#deceasedBoolean').html(p.deceasedBoolean);
+    $('#deceasedDateTime').html(p.deceasedDateTime);
+    
+    
     
   };
 
